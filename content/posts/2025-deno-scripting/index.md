@@ -1,9 +1,7 @@
 +++
 date = '2025-02-12'
 title = 'Deno scripting'
-[_build]
-list = "never"
-render = "always"
+tags = ["deno", "script", "bash", "typescript"]
 +++
 
 ## Introduction

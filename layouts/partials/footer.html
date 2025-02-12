@@ -1,0 +1,11 @@
+{{ with .GetTerms "tags" }}
+  <span>Tags: 
+    <ul id="taglist">
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{ end }}
+    </ul>
+  </span>
+{{ end }}
+
+<p>Copyright {{ now.Year }}. All rights reserved. </p>
