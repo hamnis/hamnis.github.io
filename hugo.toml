@@ -1,0 +1,22 @@
+baseURL = 'https://hamnis.github.io/'
+languageCode = 'en-us'
+title = "Erlend Hamnaberg"
+
+[module]
+  [[module.imports]]
+    path = "github.com/KKKZOZ/hugo-admonitions"
+  [[module.imports]]
+    #path = "github.com/hamnis/hugo-hyde"
+    path = "github.com/spf13/hyde"
+
+theme = "hyde"
+
+[Menus]
+  main = [
+      {Name = "Github", URL = "https://github.com/hamnis/"},
+      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/erlend-hamnaberg-582ab38/"},
+      {Name = "Mastadon", URL = "https://snabelen.no/@hamnis"}
+  ]
+
+[params]
+description = """a blog"""
