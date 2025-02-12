@@ -1,3 +1,15 @@
 [tools]
 go = "latest"
 hugo-extended = "latest"
+
+[tasks.server]
+run = ["hugo server"]
+
+[tasks.server-draft]
+run = ["hugo server -D"]
+
+[tasks.clean]
+run = [
+    "rm -rf public",
+    "rm .hugo_build.lock"
+]

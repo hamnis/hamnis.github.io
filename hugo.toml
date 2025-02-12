@@ -1,6 +1,6 @@
 baseURL = 'https://hamnis.github.io/'
 languageCode = 'en-us'
-title = "Erlend Hamnaberg"
+title = "Thoughts and Code"
 
 [module]
   [[module.imports]]
@@ -19,4 +19,4 @@ theme = "hyde"
   ]
 
 [params]
-description = """a blog"""
+description = """a blog by Erlend Hamnaberg"""

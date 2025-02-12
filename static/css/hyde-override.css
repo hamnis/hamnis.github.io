@@ -1,11 +1,17 @@
 @media (min-width: 48em) {
   .sidebar {
-    width: 22rem;
+    width: 20rem;
   }
 }
 
 @media (min-width: 48em) {
   .content {
-    margin-left: 25rem;
+    margin-left: 22rem;
+    max-width: 40rem;
   }
+}
+
+
+.container {
+  max-width: 50rem;
 }
