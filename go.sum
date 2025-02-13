@@ -1,4 +1,4 @@
 github.com/KKKZOZ/hugo-admonitions v0.4.5 h1:Z2feKyOirh5ra7Ut5hirV1Pnv8syizl0rf6FkjQKThE=
 github.com/KKKZOZ/hugo-admonitions v0.4.5/go.mod h1:4PsJAsqo3mS3VzAtDLa8k0ds+CJQUWZhAo9kLi1NRlM=
-github.com/spf13/hyde v1.3.0 h1:7zf9f7xxMfD5KwdrJU+V2w7yi1W8dKKyzvNtQkuh0sE=
-github.com/spf13/hyde v1.3.0/go.mod h1:CSmLWCbXXInaA5zAkwAQ0EbwpR7Pe74eSmDxdGspoCY=
+github.com/adityatelange/hugo-PaperMod v0.0.0-20250209063618-a020be213745 h1:3rNAIuYLUTQZv60ilJQfUjoFsJWgq/U7c2RCph5fSyA=
+github.com/adityatelange/hugo-PaperMod v0.0.0-20250209063618-a020be213745/go.mod h1:HCHxNMKYdGafUYjVV3ICiAqznZK2yH0iI53jqcDFDdQ=

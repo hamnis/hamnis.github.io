@@ -6,17 +6,95 @@ title = "Thoughts and Code"
   [[module.imports]]
     path = "github.com/KKKZOZ/hugo-admonitions"
   [[module.imports]]
-    #path = "github.com/hamnis/hugo-hyde"
-    path = "github.com/spf13/hyde"
+    path = "github.com/adityatelange/hugo-PaperMod"
 
-theme = "hyde"
+paginate = 5
+theme = ["hugo-PaperMod"]
 
-[Menus]
-  main = [
-      {Name = "Github", URL = "https://github.com/hamnis/"},
-      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/erlend-hamnaberg-582ab38/"},
-      {Name = "Mastadon", URL = "https://snabelen.no/@hamnis"}
-  ]
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+name = "Archive"
+url = "archives"
+weight = 5
+
+[[menu.main]]
+name = "Search"
+url = "search/"
+weight = 10
+
+[[menu.main]]
+name = "Tags"
+url = "tags/"
+weight = 10
 
 [params]
-description = """a blog by Erlend Hamnaberg"""
+env = "production"
+description = "a Blog"
+author = "Erlend Hamnaberg"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableEmoji = true
+pygmentsUseClasses = true
+
+defaultTheme = "auto"
+ShowShareButtons = true
+ShowReadingTime = true
+displayFullLangName = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowRssButtonInSectionTermList = true
+ShowAllPagesInArchive = true
+ShowPageNums = true
+ShowToc = true
+
+[params.profileMode]
+enabled = true
+title = "Erlend Hamnaberg"
+imageUrl = "#"
+imageTitle = "my face"
+
+[[params.profileMode.buttons]]
+name = "Archives"
+url = "archives"
+
+[[params.profileMode.buttons]]
+name = "Tags"
+url = "tags"
+
+[[params.socialIcons]]
+name = "github"
+title = "My github profile"
+url = "https://github.com/hamnis/"
+
+[[params.socialIcons]]
+name = "LinkedIn"
+title = "My linkedin profile"
+url = "https://www.linkedin.com/in/erlend-hamnaberg-582ab38/"
+
+[[params.socialIcons]]
+name = "Mastadon"
+title = "My Mastadon profile"
+url = "https://snabelen.no/@hamnis"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+noClasses = false
+
+
+[fuseOpts] # search
+isCaseSensitive = false
+shouldSort = true
+location = 0
+distance = 1_000
+threshold = 0.4
+minMatchCharLength = 0
+limit = 10
+keys = [ "title", "permalink", "summary", "content" ]

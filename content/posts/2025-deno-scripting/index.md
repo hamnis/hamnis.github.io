@@ -2,6 +2,10 @@
 date = '2025-02-12'
 title = 'Deno scripting'
 tags = ["deno", "script", "bash", "typescript"]
+searchHidden = true
+[_build]
+list = "never"
+render = "always"
 +++
 
 ## Introduction
