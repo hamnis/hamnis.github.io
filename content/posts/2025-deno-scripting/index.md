@@ -251,7 +251,7 @@ We also need to make the new script executable
 
 `deno compile sub-commands.ts`
 
-This will produce a binary for the [current platform]()https://docs.deno.com/runtime/reference/cli/compile/#cross-compilation.
+This will produce a binary for the [current platform](https://docs.deno.com/runtime/reference/cli/compile/#cross-compilation).
 Another benefit from compilation is that we also solve the distrbution problem.
 
 Next we need to load the completions into the current shell.
