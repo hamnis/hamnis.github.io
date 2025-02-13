@@ -56,7 +56,7 @@ ShowToc = true
 [params.profileMode]
 enabled = true
 title = "Erlend Hamnaberg"
-imageUrl = "#"
+imageUrl = "images/hamnis.jpeg"
 imageTitle = "my face"
 
 [[params.profileMode.buttons]]
