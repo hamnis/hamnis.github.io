@@ -233,9 +233,8 @@ Running `deno run sub-commands.ts` with no arguments yields:
 To use the built-in shell completion in `cliffy` you have to first activate it.
 ![sub command completions help screen](images/completions.png)
 
-We also need to run the script as a standalone command.
-
 > [!INFO]
+> We need to run the script as a standalone command.
 > The reason for this is that the completion system expects a `known` command
 > Our name for the command is `sub-commands`
 
@@ -248,11 +247,12 @@ Prepend `#!/usr/bin/env deno` to `sub-commands.ts` then rename it to `sub-comman
 We also need to make the new script executable
 `chmod 755 sub-commands`
 
-2. Compile the program into an executable.
+2. Compile the program into an [executable](https://docs.deno.com/runtime/reference/cli/compile/).
 
 `deno compile sub-commands.ts`
 
-This will produce a binary for the current platform.
+This will produce a binary for the [current platform]()https://docs.deno.com/runtime/reference/cli/compile/#cross-compilation.
+Another benefit from compilation is that we also solve the distrbution problem.
 
 Next we need to load the completions into the current shell.
 
