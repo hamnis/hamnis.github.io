@@ -1,5 +1,5 @@
 +++
-date = '2025-02-12'
+date = '2025-02-13'
 title = 'Deno scripting'
 tags = ["deno", "script", "bash", "typescript"]
 +++
