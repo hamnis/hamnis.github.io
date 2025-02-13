@@ -235,7 +235,7 @@ To use the built-in shell completion in `cliffy` you have to first activate it.
 
 > [!INFO]
 > We need to run the script as a standalone command.
-> The reason for this is that the completion system expects a `known` command
+> The reason for this is that the completion system expects a `known` command.
 > Our name for the command is `sub-commands`
 
 Here are two different ways we can do that:
