@@ -2,34 +2,36 @@
 date = '2025-02-12'
 title = 'Deno scripting'
 tags = ["deno", "script", "bash", "typescript"]
-searchHidden = true
-[_build]
-list = "never"
-render = "always"
 +++
 
 ## Introduction
 
-Have you ever written too many `bash` scripts? Some may say that every line of `bash` is too much `bash`.
+Have you ever felt like you’re making too many shell scripts? Some may say that every line of `bash` is too much `bash`.
 An example of why bash may be not the best solution for writing scripts is shellcheck. There are [too many possible mistakes](https://gist.github.com/eggplants/9fbe03453c3f3fd03295e88def6a1324).
 
 In the last few years I have been experimenting with different scripting languages, and I think I have found a few good ones.
 
-A non-exhausistive list is:
+A non-exhaustive list is:
 * [ammonite](https://ammonite.io/)
 * [Scala cli scripts](https://scala-cli.virtuslab.org/docs/guides/scripting/scripts)
 * [Deno](https://docs.deno.com)
 
 You may notice that all of these are using strongly typed languages, and you may rightly ask why.
-Because of type inference, types are hardly a problem.
+We have [type inference](https://en.wikipedia.org/wiki/Type_inference) in most strongly typed languages.
+This means that we rarely have to declare the types, we can't all be Java.
+
 In my experience, using strongly typed languages actually helps drive the scripts along.
 Also since we have a _real_ programming language, we can create abstractions to help doing the correct things.
+We can also test the code, since we have a built-in test-runner.
+
+> [!NOTE]
+> Technically you [can](https://github.com/bats-core/bats-core) do this in bash
 
 My latest discovery is the typescript runtime [Deno](https://deno.com).
 This post will explore a few ways of why you may want to use something like Deno for some of your scripting needs.
 
 ## Command line parsing
-I am sure you have tried parsing the [command line arguments](https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash) in bash. This is surprisingly difficult and error prone.
+I am sure you have tried parsing [command line arguments](https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash) in bash. This is surprisingly difficult and error prone.
 
 How can we do this in deno? In short; we use [Cliffy](https://cliffy.io/).
 
@@ -227,6 +229,45 @@ Running `deno run sub-commands.ts` with no arguments yields:
 ![sub command with no arguments help screen](images/sub-commands-no-args.png)
 
 
+### Shell completion
+To use the built-in shell completion in `cliffy` you have to first activate it.
+![sub command completions help screen](images/completions.png)
+
+We also need to run the script as a standalone command.
+
+> [!INFO]
+> The reason for this is that the completion system expects a `known` command
+> Our name for the command is `sub-commands`
+
+Here are two different ways we can do that:
+
+1. Use a [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29)
+
+Prepend `#!/usr/bin/env deno` to `sub-commands.ts` then rename it to `sub-commands`
+
+We also need to make the new script executable
+`chmod 755 sub-commands`
+
+2. Compile the program into an executable.
+
+`deno compile sub-commands.ts`
+
+This will produce a binary for the current platform.
+
+Next we need to load the completions into the current shell.
+
+```zsh
+source <(./sub-commands completions zsh)
+```
+
+Once this is loaded successfully we can <TAB> complete in:
+
+```zsh
+./sub-commands <tab>
+```
+
+![sub command completions expanded](images/completions-2.png)
+
 ## Run an executable (in Bash)
 
 OK. Running a process in bash is really easy. We just do this:
@@ -260,8 +301,8 @@ This is more code than the bash simple case, but we get a few benefits:
 2. We can capture both the `stdout` and `stderr`
 3. We can query the exit status by checking `out.success`
 
-But this is not everything, we can redirect the output directly into the 
-stdout or stderr as needed. We can pipe stdout into stdin in other commands, just like in bash.
+But this is not everything, we can redirect the output directly into the current process'
+`stdout` or `stderr` as needed. We can pipe `stdout` into `stdin` in other commands, just like in bash.
 
 Take a look at the [API](https://docs.deno.com/api/deno/~/Deno.Command) for more uses.
 
@@ -270,4 +311,4 @@ Take a look at the [API](https://docs.deno.com/api/deno/~/Deno.Command) for more
 
 I hope this post has inspired you to take a look at other languages for your scripting needs.
 Deno has a lot going for it, and I think it is accessible for most people.
-The code for this post is also available as a git repo [here](https://github.com/hamnis/blog-deno-cli)
+The code for this post is also available as a git repo [here](https://github.com/hamnis/blog-2025-deno-scripting)
